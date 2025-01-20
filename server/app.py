@@ -5,7 +5,7 @@ from datetime import datetime
 from models import db, Message
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///messages.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///app.db'
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 
 migrate = Migrate(app, db)
@@ -35,7 +35,7 @@ def handle_messages():
 
 @app.route('/messages/<int:id>', methods=['GET', 'PATCH', 'DELETE'])
 def handle_message(id):
-    session = db.session  # Use db.session directly
+    session = db.session 
 
     if request.method == 'GET':
         message = session.get(Message, id)
