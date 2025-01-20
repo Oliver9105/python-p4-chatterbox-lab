@@ -11,6 +11,8 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 migrate = Migrate(app, db)
 db.init_app(app)
 
+
+
 @app.route('/')
 def index():
     return "Welcome to the Chatterbox API!"
